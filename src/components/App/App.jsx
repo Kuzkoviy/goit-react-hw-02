@@ -2,6 +2,7 @@
 import Description from "../Description/Description"
 import Options from "../Options/Options"
 import Feedback from "../Feedback/Feedback"
+import Notifications from "../Notification/Notifications"
 import { useEffect, useState } from "react"
 
 const App = () => {
@@ -53,12 +54,15 @@ const App = () => {
             onReset={onReset}
             totalFeedback={totalFeedback}
         />
+        {totalFeedback === 0 ?
+        <Notifications/>
+            :
         <Feedback
             positive={positive}
             totalFeedback={totalFeedback}
             options={options}
         />
-
+        }
     </>
   )
 }
